@@ -10,4 +10,3 @@ test('InCo home page loads', async ({ page }) => {
   await page.getByText("Contributors").isVisible()
 
 });
-
