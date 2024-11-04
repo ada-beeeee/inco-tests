@@ -4,7 +4,13 @@ import { createHtmlReport } from 'axe-html-reporter'
 
 test.describe('Test pages with axe', () => {
 
-  const test_env: string = "local";
+
+  let test_env: string;
+  if (process.env.TEST_ENV) {
+    test_env = process.env.TEST_ENV
+  } else {
+    test_env = "local"
+  }
   let home_url: string;
 
   switch (test_env) {
