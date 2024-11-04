@@ -4,7 +4,18 @@ import { createHtmlReport } from 'axe-html-reporter'
 
 test.describe('Test pages with axe', () => {
 
-  const scanPages = [ "https://incocollective.com/" ]
+  const test_env: string = "local";
+  let home_url: string;
+
+  switch (test_env) {
+    case "prod":
+      home_url = "https://incocollective.com/"
+      break;
+    default:
+      home_url = "http://localhost:3000/"
+      break;
+  }
+  const scanPages = [ home_url ]
 
   for (const scanPage of scanPages) {
     test(`Scan page: ${scanPage}`, async ({ page }) => {

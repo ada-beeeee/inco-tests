@@ -3,9 +3,13 @@ on:
   [push, workflow_dispatch]
 
 jobs:
-  test:
+  test-jobs:
     timeout-minutes: 10
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        TEST_SUITE: ["critical", "axe"]
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
