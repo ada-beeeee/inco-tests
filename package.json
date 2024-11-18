@@ -10,5 +10,10 @@
   "devDependencies": {
     "@playwright/test": "^1.48.2",
     "@types/node": "^22.8.2"
+  },
+  "dependencies": {
+    "@axe-core/playwright": "^4.10.1",
+    "axe-html-reporter": "^2.2.11",
+    "csv-parse": "^5.5.6"
   }
 }
