@@ -4,13 +4,17 @@ on:
 
 jobs:
   test:
-    name: ${{ matrix.TEST_SUITE }} tests
+    name: ${{ matrix.TEST_SUITE }} tests - ${{ matrix.TEST_ENV }}
     timeout-minutes: 10
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
         TEST_SUITE: ["critical", "axe"]
+        TEST_ENV: ["production"]
+
+    env:
+      TEST_ENV: ${{ matrix.TEST_ENV }}
 
     steps:
       - uses: actions/checkout@v4
